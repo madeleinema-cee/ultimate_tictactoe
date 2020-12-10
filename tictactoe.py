@@ -1,17 +1,19 @@
 import sys
 import itertools
+
+
 class TicTacToe:
     def __init__(self):
         self.game = [
-                    [0, 0, 0],
-                    [0, 0, 0],
-                    [0, 0, 0],
-                    ]
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+        ]
         self.col = {
-                    'a': 0,
-                    'b': 1,
-                    'c': 2
-                    }
+            'a': 0,
+            'b': 1,
+            'c': 2
+        }
         self.count = 0
         self.moves = []
         self.check = []
@@ -24,6 +26,7 @@ class TicTacToe:
     def user_input(self):
         player_choice = itertools.cycle([1, 2])
         while self.count < 10:
+            # rotate player
             player = next(player_choice)
             print(f"Current Player: {player}")
             inputs = input("Where do you want to go? eg.a1, b2:   ")
@@ -45,7 +48,7 @@ class TicTacToe:
             for count, row in enumerate(self.game):
                 print(count, row)
             self.count += 1
-            print('round',self.count)
+            print('round', self.count)
 
             self.win(row_index=row_index, col_index=col_index)
 
@@ -81,8 +84,6 @@ class TicTacToe:
         else:
             self.left_diag = []
             self.right_diag = []
-
-
 
 
 if __name__ == '__main__':
